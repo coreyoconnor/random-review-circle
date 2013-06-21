@@ -1,0 +1,10 @@
+#!/bin/bash
+set -e
+cd random-review-circle
+which cabal-dev || ( cabal update && cabal install cabal-dev )
+cabal-dev install
+
+eval "./cabal-dev/bin/random-review-circle ${NAMES}"
+
+# jenkins saves and serves review-graph.svg
+
