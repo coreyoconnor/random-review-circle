@@ -2,9 +2,10 @@
 set -e
 cd random-review-circle
 which cabal-dev || ( cabal update && cabal install cabal-dev )
-cabal-dev install
+cabal-dev install --sandbox=$WORKSPACE/cabal-sandbox
 
-eval "./cabal-dev/bin/random-review-circle ${NAMES}"
+cd $WORKSPACE
+
+eval "./cabal-sandbox/bin/random-review-circle ${NAMES}"
 
 # jenkins saves and serves review-graph.svg
-
