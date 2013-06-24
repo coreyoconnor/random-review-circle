@@ -15,6 +15,7 @@ import Data.Text.Lazy (pack)
 import System.Environment
 import System.Random
 
+-- copied from http://www.haskell.org/haskellwiki/Random_shuffle
 shuffle :: [a] -> IO [a]
 shuffle xs = do
     ar <- newArray n xs
