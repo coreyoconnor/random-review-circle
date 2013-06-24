@@ -38,5 +38,5 @@ main = do
     let params :: GraphvizParams Node String () () String
         params = defaultParams { isDirected = True, fmtNode = \(_,l) -> [(Label . StrLabel . pack) l] }
     print (graphToDot params g)
-    runGraphviz (graphToDot params g) Svg "review-graph.svg"
+    runGraphviz (graphToDot params g) Png "review-graph.png"
 
